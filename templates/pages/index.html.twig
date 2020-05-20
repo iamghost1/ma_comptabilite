@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title 'Ma Comptabilite' %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Ma Comptabilite</h1>
+        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+            Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
+            assembla ensemble des
+            morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles,
+        </p>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerer les Employé(e)</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="{{ path('lesemployes.index') }}" class="btn btn-primary">Gestion des Employé(e)s</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerer les Types de Depense</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="{{ path('typedepense.index') }}" class="btn btn-primary">les Types de Depenses</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerer les Dépenses</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="{{ path('depense.index') }}" class="btn btn-primary">Gestion des Dépenses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

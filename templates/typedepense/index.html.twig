@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title 'Gérer les types de depenses' %}
+{% block body %}
+    <div class="container mt-4">
+        <h1>Type de Depense</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Libelle</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for typedepenses in typedepense %}
+                <tr>
+                    <td>{{ typedepenses.accountNumber }}</td>
+                    <td>{{ typedepenses.libelle }}</td>
+                    <td>
+                        <a href="#" class="btn btn-secondary">Afficher</a>
+                        <a href="{{ path('typedepense.edit',{id: typedepenses.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form method="post" action="{{ path('typedepense.delete', {id: typedepenses.id}) }}" style="display: inline-block;" onsubmit="return confirm('êtes vous sur?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token(typedepenses.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <a href="{{ path('typedepense.new') }}" class="btn btn-primary">Créer un type de depense</a>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
